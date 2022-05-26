@@ -31,7 +31,7 @@ const Logo = (props) => {
 };
 
 const Wrapper = styled.div`
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     display: grid;
     width: 100%;
     grid-template-columns: 1fr 3fr 1fr;
@@ -68,7 +68,7 @@ const SubscriberLink = styled.a`
 const RightGroup = styled.div`
   display: none;
 
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 3fr 1fr;
@@ -85,7 +85,7 @@ const ActionGroup = styled.div`
   display: none;
   justify-self: flex-start;
 
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     display: flex;
     gap: 30px;
     grid-column: 1 / 2;
@@ -99,7 +99,7 @@ const Link = styled.a`
   grid-column: 2 / 3;
   grid-row: 1 / 2;
 
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     font-size: calc(64rem / 16);
   }
 `;

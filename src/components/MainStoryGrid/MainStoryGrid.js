@@ -7,6 +7,8 @@ import {
   SECONDARY_STORIES,
 } from '../../data';
 
+import { COLORS } from '../../constants';
+
 import SectionTitle from '../SectionTitle';
 import MainStory from '../MainStory';
 import SecondaryStory from '../SecondaryStory';
@@ -65,7 +67,8 @@ const SecondaryStorySection = styled.section`
 
 const StoryList = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 16px;
 `;
 
 const OpinionSection = styled.section`

@@ -7,7 +7,7 @@ import {
   SECONDARY_STORIES,
 } from '../../data';
 
-import { COLORS } from '../../constants';
+import { COLORS, QUERIES } from '../../constants';
 
 import SectionTitle from '../SectionTitle';
 import MainStory from '../MainStory';
@@ -53,16 +53,33 @@ const Wrapper = styled.div`
     'secondary-stories'
     'opinion-stories'
     'advertisement';
-  gap: 48px;
+  gap: 48PX;
   margin-bottom: 48px;
+
+  @media ${QUERIES.tabletOnly} {
+    grid-template-areas:
+    'main-story secondary-stories'
+    'advertisement advertisement'
+    'opinion-stories opinion-stories';
+    grid-template-columns: 2fr minmax(200px, 1fr);
+  }
 `;
 
 const MainStorySection = styled.section`
   grid-area: main-story;
+
+  @media ${QUERIES.tabletAndUp} {
+    margin-right: -32px;
+  }
 `;
 
 const SecondaryStorySection = styled.section`
   grid-area: secondary-stories;
+
+  @media ${QUERIES.tabletAndUp} {
+    padding-left: 16px;
+    border-left: 1px solid ${COLORS.gray[300]}
+  }
 `;
 
 const StoryList = styled.div`

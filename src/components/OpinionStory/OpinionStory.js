@@ -7,10 +7,10 @@ const OpinionStory = ({ id, title, author, avatar }) => {
     <OpinionLink href={`/story/${id}`}>
       <Wrapper>
         <Avatar alt="" src={avatar} />
-        <div>
+        <TextWrapper>
           <AuthorName>{author}</AuthorName>
           <ArticleTitle>{title}</ArticleTitle>
-        </div>
+        </TextWrapper>
       </Wrapper>
     </OpinionLink>
   );
@@ -31,6 +31,13 @@ const OpinionLink = styled.a`
 
     & + & {
       border-top: 0;
+    }
+  }
+
+  @media ${QUERIES.tabletAndUp} {
+    
+    & + & {
+      margin-bottom: -16px;
       padding-top: 0;
     }
   }
@@ -42,8 +49,9 @@ const Wrapper = styled.article`
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
+  height: 100%;
 
-  @media ${QUERIES.tabletAndUp} {
+  @media ${QUERIES.tabletOnly} {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -68,6 +76,12 @@ const ArticleTitle = styled.h3`
   font-size: 1.125rem;
   font-weight: var(--font-weight-bold);
   line-height: 1.3;
+`;
+
+const TextWrapper = styled.div`
+  @media ${QUERIES.laptopAndUp} {
+    max-width: 75%;
+  }
 `;
 
 export default OpinionStory;

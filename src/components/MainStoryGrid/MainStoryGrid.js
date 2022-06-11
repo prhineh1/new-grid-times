@@ -31,7 +31,7 @@ const MainStoryGrid = () => {
       </SecondaryStorySection>
 
       <OpinionSection>
-        <SectionTitle>Opinion</SectionTitle>
+        <OpinionTitle>Opinion</OpinionTitle>
         <StoryList>
           {OPINION_STORIES.map((story, index) => (
             <OpinionStory key={story.id} {...story} />
@@ -63,6 +63,13 @@ const Wrapper = styled.div`
     'opinion-stories opinion-stories';
     grid-template-columns: 2fr minmax(200px, 1fr);
   }
+
+  @media ${QUERIES.laptopAndUp} {
+    grid-template-areas:
+    'main-story secondary-stories opinion-stories'
+    'main-story advertisement advertisement';
+    grid-template-columns: 1.7fr 1.36fr 1fr;
+  }
 `;
 
 const MainStorySection = styled.section`
@@ -70,15 +77,16 @@ const MainStorySection = styled.section`
 
   @media ${QUERIES.tabletAndUp} {
     margin-right: -32px;
+    padding-right: 16px;
+    border-right: 1px solid ${COLORS.gray[300]};
   }
 `;
 
 const SecondaryStorySection = styled.section`
   grid-area: secondary-stories;
 
-  @media ${QUERIES.tabletAndUp} {
-    padding-left: 16px;
-    border-left: 1px solid ${COLORS.gray[300]}
+  @media ${QUERIES.laptopAndUp} {
+    padding-bottom: 16px;
   }
 `;
 
@@ -86,14 +94,41 @@ const StoryList = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+
+  @media ${QUERIES.laptopAndUp} {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 100%;
+  }
 `;
 
 const OpinionSection = styled.section`
   grid-area: opinion-stories;
-`;
+
+  @media ${QUERIES.tabletAndUp} {
+    margin-left: -32px;
+    padding-left: 16px;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid ${COLORS.gray[300]};
+  }
+  `;
 
 const AdvertisementSection = styled.section`
   grid-area: advertisement;
+
+  @media ${QUERIES.laptopAndUp} {
+    margin-top: -32px;
+    padding-top: 16px;
+    border-top: 1px solid ${COLORS.gray[300]};
+    padding-bottom: 8px;
+  }
+`;
+
+const OpinionTitle = styled(SectionTitle)`
+  @media ${QUERIES.laptopAndUp} {
+    margin-bottom: -16px;
+  }
 `;
 
 export default MainStoryGrid;

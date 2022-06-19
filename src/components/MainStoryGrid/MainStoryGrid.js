@@ -106,11 +106,10 @@ const OpinionSection = styled.section`
   grid-area: opinion-stories;
 
   @media ${QUERIES.tabletAndUp} {
-    margin-left: -32px;
-    padding-left: 16px;
     display: flex;
     flex-direction: column;
     border-left: 1px solid ${COLORS.gray[300]};
+    justify-content: flex-start;
   }
   `;
 
